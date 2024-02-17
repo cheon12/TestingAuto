@@ -1,0 +1,58 @@
+:root  {
+  --body-bgcolor: #EEE;
+  --body-text:#111;
+  --header-bgcolor: #2b3c81;
+  --header-text: #fff;
+  --profile-bgcolor: #fff;
+  --profile-text: #333;
+  --header-menu-bgcolor: #FFF;
+  --header-phone-text: #333;
+  --box-bgcolor: #FFF;
+  --box-hover: #EEE;
+  --box-text: #333;
+  --box-hover-text: #1b4bf1;
+  --header-sub-bgcolor: #333;
+  --header-sub-text: #EEE;
+  --news-ticker: #DDD;
+  --submenu-active: #fff042;
+  --backgroud-dark-text: #fff;
+  --backgroud-white-text: #000;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #EEE;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2b3c81;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.btn2 {
+	border-top:1px solid #eee;
+	border-left:1px solid #eee;
+	border-right:1px solid #eee;
+	border-radius:5px 5px 0px 0px;
+	background-color:#fff;
+	width:55px;
+	height:40px;
+	line-height:35px;
+		float: left;
+		margin-left:2px;
+	cursor:pointer;
+	text-align:center;
+}
+.btn2.action {
+	font-weight:900;
+	color:#ee3333;
+}

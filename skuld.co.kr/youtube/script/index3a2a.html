@@ -1,0 +1,381 @@
+var previousChart = null;
+
+var gCharts;
+
+function chart_draw_sse(ndx_map, color) {
+
+
+	if (previousChart != null) {
+		google.visualization.events.removeAllListeners(previousChart);
+	}
+	
+	if(ndx_map !== undefined && color !== undefined) { 
+				
+		//console.log(ndx_map);
+		//console.log(color);
+		
+		var datas = new google.visualization.DataTable(ndx_map);
+
+		var options = {
+			height:500,
+			fontSize: 10,
+			backgroundColor: '#000',
+			// 가로
+			hAxis: {
+				direction: 1,
+                 //slantedTextAngle: 90,
+				textStyle : {
+					fontSize: 15,
+                        color: '#ccc',
+				}
+			},
+			// 세로
+			vAxes: [{
+				textStyle : {
+					fontSize: 15,
+                      color: '#ccc',
+				},
+				baselineColor: '#141414',
+				gridlineColor: '#191919'
+			}, {
+				direction: 1,
+				baselineColor: '',
+				gridlineColor: ''
+			}],
+			chartArea: {
+				width: '100%', 
+				height: '100%', 
+				left:70, 
+				top:40,
+				right:0,
+				bottom:80,
+				'backgroundColor': {
+					'opacity': 100
+				 },
+			},
+			 series: {
+				0: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_0, lineDashStyle: [4, 2], lineWidth: 1 },
+				1: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_1, lineDashStyle: [4, 2], lineWidth: 2 },
+				2: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_2, lineDashStyle: [4, 2], lineWidth: 2 },
+				3: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_3, lineDashStyle: [4, 2], lineWidth: 2 },
+				4: { targetAxisIndex:1, axis: 'volume', color: color.style_4, lineWidth: 0, type: 'bars' },
+				5: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_5, lineWidth: 1 },
+				6: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_6, lineWidth: 1 },
+				7: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_7, lineDashStyle: [1, 3], lineWidth: 2 },
+				8: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_8, lineDashStyle: [1, 3], lineWidth: 2 },
+				9: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_9, lineWidth: 1 },
+				10: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_10, lineWidth: 3 },
+				11: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_11, lineDashStyle: [4, 8], lineWidth: 2 },
+				12: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_12, lineDashStyle: [4, 8], lineWidth: 2 },
+				13: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_13, lineDashStyle: [4, 8], lineWidth: 2 },
+				14: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_14, lineDashStyle: [4, 8], lineWidth: 2 },
+				15: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_15, lineDashStyle: [4, 8], lineWidth: 2 },
+				16: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_16, lineDashStyle: [4, 8], lineWidth: 2 },
+				17: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_17, lineDashStyle: [4, 8], lineWidth: 2 },
+				18: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_18, lineDashStyle: [4, 8], lineWidth: 2 },
+				19: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_19, lineDashStyle: [4, 8], lineWidth: 2 },
+				20: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_20, lineDashStyle: [4, 8], lineWidth: 2 },
+				21: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_21, lineDashStyle: [4, 8], lineWidth: 2 },
+				22: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_22, lineDashStyle: [4, 8], lineWidth: 2 },
+				23: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_23, lineDashStyle: [4, 8], lineWidth: 2 },
+				24: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_24, lineDashStyle: [4, 8], lineWidth: 2 },
+				25: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_25, lineDashStyle: [4, 8], lineWidth: 2 },
+				26: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_26, lineDashStyle: [4, 8], lineWidth: 2 },
+				27: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_27, lineDashStyle: [4, 8], lineWidth: 2 },
+				28: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_28, lineDashStyle: [4, 8], lineWidth: 2 },
+				29: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_29, lineDashStyle: [4, 8], lineWidth: 2 },
+				30: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_30, lineDashStyle: [4, 8], lineWidth: 2 },
+				31: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_31, lineDashStyle: [4, 8], lineWidth: 2 },
+				32: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_32, lineDashStyle: [4, 8], lineWidth: 2 },
+				33: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_33, lineDashStyle: [4, 8], lineWidth: 2 },
+				34: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_34, lineDashStyle: [4, 8], lineWidth: 2 },
+				35: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_35, lineDashStyle: [4, 8], lineWidth: 2 },
+				36: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_36, lineDashStyle: [4, 8], lineWidth: 2 },
+				37: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_37, lineDashStyle: [4, 8], lineWidth: 2 },
+				38: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_38, lineDashStyle: [4, 8], lineWidth: 2 },
+				39: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_39, lineDashStyle: [4, 8], lineWidth: 2 },
+				40: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_40, lineDashStyle: [4, 8], lineWidth: 2 },
+				41: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_41, lineDashStyle: [4, 8], lineWidth: 2 },
+				42: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_42, lineDashStyle: [4, 8], lineWidth: 2 },
+				43: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_43, lineDashStyle: [4, 8], lineWidth: 2 },
+				44: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_44, lineDashStyle: [4, 8], lineWidth: 2 },
+				45: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_45, lineDashStyle: [4, 8], lineWidth: 2 },
+				46: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_46, lineDashStyle: [4, 8], lineWidth: 2 },
+				47: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_47, lineDashStyle: [4, 8], lineWidth: 2 },
+				48: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_48, lineDashStyle: [4, 8], lineWidth: 2 },
+				49: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_49, lineDashStyle: [4, 8], lineWidth: 2 },
+				50: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_50, lineDashStyle: [4, 8], lineWidth: 2 },
+				51: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_51, lineDashStyle: [4, 8], lineWidth: 2 },
+				52: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_52, lineDashStyle: [4, 8], lineWidth: 2 },
+				53: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_53, lineDashStyle: [4, 8], lineWidth: 2 },
+				54: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_54, lineDashStyle: [4, 8], lineWidth: 2 },
+				55: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_55, lineDashStyle: [4, 8], lineWidth: 2 },
+				56: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_56, lineDashStyle: [4, 8], lineWidth: 2 },
+				57: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_57, lineDashStyle: [4, 8], lineWidth: 2 },
+				58: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_58, lineDashStyle: [4, 8], lineWidth: 2 },
+				59: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_59, lineDashStyle: [4, 8], lineWidth: 2 },
+				60: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_60, lineDashStyle: [4, 8], lineWidth: 2 },
+				61: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_61, lineDashStyle: [4, 8], lineWidth: 2 },
+				62: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_62, lineDashStyle: [4, 8], lineWidth: 2 },
+				63: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_63, lineDashStyle: [4, 8], lineWidth: 2 },
+				64: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_64, lineDashStyle: [4, 8], lineWidth: 2 },
+				65: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_65, lineDashStyle: [4, 8], lineWidth: 2 },
+				66: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_66, lineDashStyle: [4, 8], lineWidth: 2 },
+				67: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_67, lineDashStyle: [4, 8], lineWidth: 2 },
+				68: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_68, lineDashStyle: [4, 8], lineWidth: 2 },
+				69: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_69, lineDashStyle: [4, 8], lineWidth: 2 },
+				70: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_70, lineDashStyle: [4, 8], lineWidth: 2 },
+				71: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_71, lineDashStyle: [4, 8], lineWidth: 2 },
+				72: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_72, lineDashStyle: [4, 8], lineWidth: 2 },
+				73: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_73, lineDashStyle: [4, 8], lineWidth: 2 },
+				74: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_74, lineDashStyle: [4, 8], lineWidth: 2 },
+				75: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_75, lineDashStyle: [4, 8], lineWidth: 2 },
+				76: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_76, lineDashStyle: [4, 8], lineWidth: 2 },
+				77: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_77, lineDashStyle: [4, 8], lineWidth: 2 },
+				78: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_78, lineDashStyle: [4, 8], lineWidth: 2 },
+				79: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_79, lineDashStyle: [4, 8], lineWidth: 2 },
+				80: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_80, lineDashStyle: [4, 8], lineWidth: 2 },
+				81: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_81, lineDashStyle: [4, 8], lineWidth: 2 },
+				82: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_82, lineDashStyle: [4, 8], lineWidth: 2 },
+				83: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_83, lineDashStyle: [4, 8], lineWidth: 2 },
+				84: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_84, lineDashStyle: [4, 8], lineWidth: 2 },
+				85: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_85, lineDashStyle: [4, 8], lineWidth: 2 },
+				86: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_86, lineDashStyle: [4, 8], lineWidth: 2 },
+				87: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_87, lineDashStyle: [4, 8], lineWidth: 2 },
+				88: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_88, lineDashStyle: [4, 8], lineWidth: 2 },
+				89: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_89, lineDashStyle: [4, 8], lineWidth: 2 },
+				90: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_90, lineDashStyle: [4, 8], lineWidth: 2 },
+				91: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_91, lineDashStyle: [4, 8], lineWidth: 2 },
+				92: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_92, lineDashStyle: [4, 8], lineWidth: 2 },
+				93: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_93, lineDashStyle: [4, 8], lineWidth: 2 },
+				94: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_94, lineDashStyle: [4, 8], lineWidth: 2 },
+				95: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_95, lineDashStyle: [4, 8], lineWidth: 2 },
+				96: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_96, lineDashStyle: [4, 8], lineWidth: 2 },
+				97: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_97, lineDashStyle: [4, 8], lineWidth: 2 },
+				98: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_98, lineDashStyle: [4, 8], lineWidth: 2 },
+				99: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_99, lineDashStyle: [4, 8], lineWidth: 2 },
+				100: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_100, lineDashStyle: [4, 8], lineWidth: 2 },
+				101: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_101, lineDashStyle: [4, 8], lineWidth: 2 },
+				102: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_102, lineDashStyle: [4, 8], lineWidth: 2 },
+				103: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_103, lineDashStyle: [4, 8], lineWidth: 2 },
+				104: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_104, lineDashStyle: [4, 8], lineWidth: 2 },
+				105: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_105, lineDashStyle: [4, 8], lineWidth: 2 },
+				106: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_106, lineDashStyle: [4, 8], lineWidth: 2 },
+				107: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_107, lineDashStyle: [4, 8], lineWidth: 2 },
+				108: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_108, lineDashStyle: [4, 8], lineWidth: 2 },
+				109: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_109, lineDashStyle: [4, 8], lineWidth: 2 },
+				110: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_100, lineDashStyle: [4, 8], lineWidth: 2 },
+				111: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_111, lineDashStyle: [4, 8], lineWidth: 2 },
+				112: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_112, lineDashStyle: [4, 8], lineWidth: 2 },
+				113: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_113, lineDashStyle: [4, 8], lineWidth: 2 },
+				114: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_114, lineDashStyle: [4, 8], lineWidth: 2 },
+				115: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_115, lineDashStyle: [4, 8], lineWidth: 2 },
+				116: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_116, lineDashStyle: [4, 8], lineWidth: 2 },
+				117: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_117, lineDashStyle: [4, 8], lineWidth: 2 },
+				118: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_118, lineDashStyle: [4, 8], lineWidth: 2 },
+				119: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_119, lineDashStyle: [4, 8], lineWidth: 2 },
+				120: { targetAxisIndex:0, axis: 'nasdaq', color: color.style_120, lineDashStyle: [4, 8], lineWidth: 2 }
+			  },
+			axes: {
+			  y: {
+				nasdaq: {label: '나스닥지수'},
+				macd: {label: 'MACD'}
+			  }
+			},
+			legend: {
+                    textStyle: {
+                        fontSize: 14,
+                        color: '#EEE',
+                    },
+                },
+			animation:{
+				duration: 1000,
+				easing: 'out'
+			}
+		};
+
+		if (gCharts != null && gCharts != undefined) {
+			gCharts.clearChart();
+			gCharts = null;
+
+		}
+
+		if(datas !== undefined) { 
+			gCharts = new google.visualization.ComboChart(document.getElementById('chart_data'));
+			gCharts.draw(datas, options);
+			datas = null;
+		}
+		
+	}
+	
+}
+
+function load_simulation_sse() {
+
+}
+
+var simulation_check;
+var now_price = "";
+var today_profit = "";
+var data_chart;
+var data_color;
+var source;
+  
+if(source !== undefined) { 
+	source.close();
+}
+
+$(document).ready(function(){
+
+	if(simulation_check !== undefined) { 
+		clearInterval(simulation_check);
+	}
+	
+	//////////////////////////////////////////////////////////////////
+	google.charts.load('current', {packages:['corechart', 'line']});
+	google.charts.setOnLoadCallback(load_simulation_sse);
+
+	if (!!window.EventSource) {
+
+	    source = new EventSource('/youtube/sse');
+	  
+		source.addEventListener('message', function(e) {
+			console.log(e);
+			$('#sse_data').html(e.data);
+		}, false);
+		
+		source.addEventListener('info', function(e) { $('#info').html(e.data); }, false);
+		source.addEventListener('time', function(e) { $('#server_time').html(e.data); }, false);
+		source.addEventListener('bot_no', function(e) { $('#bot_no').html(e.data); }, false);
+		source.addEventListener('bot_status', function(e) { $('#bot_status').html(e.data); }, false);
+		source.addEventListener('bot_sleep', function(e) { $('#bot_sleep').html(e.data); }, false);
+		
+		source.addEventListener('price_log', function(e) { $('#price_log').html(e.data); }, false);
+				
+		source.addEventListener('ai_check', function(e) { $('#ai_check').html(e.data); }, false);
+		
+		source.addEventListener('long', function(e) { $('#long_data').html(e.data); }, false);
+		source.addEventListener('short', function(e) { $('#short_data').html(e.data); }, false);
+		source.addEventListener('news', function(e) { $('#news_data').html(e.data); }, false);
+		source.addEventListener('order_log', function(e) { $('#save_order_log_detail').html(e.data); }, false);
+		source.addEventListener('gool_profit', function(e) { $('#gool_profit').html(e.data); }, false);
+		source.addEventListener('log_data', function(e) { $('#log_data').html(e.data); }, false);
+		source.addEventListener('judgment_log', function(e) { $('#judgment_log').html(e.data); }, false);
+		
+		source.addEventListener('now_view', function(e) { $('#now_view').html(e.data); }, false);
+		
+		source.addEventListener('balance', function(e) { $('#balance_data').html(e.data); }, false);
+		source.addEventListener('position', function(e) { $('#save_data_order').html(e.data); }, false);
+		source.addEventListener('position_end', function(e) { $('#save_data_detail').html(e.data); }, false);
+		
+		source.addEventListener('save', function(e) { $('#save_data').html(e.data); }, false);
+		source.addEventListener('nasdaq', function(e) { $('#nasdaq').html(e.data); }, false);
+		
+		source.addEventListener('profit_list', function(e) { $('#profit_list').html(e.data); }, false);
+		source.addEventListener('order_list', function(e) { $('#order_list').html(e.data); }, false);
+			
+		source.addEventListener('display_price2', function(e) { 
+				$('#now_price').html(e.data);
+		}, false);
+
+
+		source.addEventListener('order_now_cnt', function(e) { $('#now_cnt_value').val(e.data); }, false);
+		
+
+
+		source.addEventListener('ndx_price', function(e) { 
+				if($('input[id="auto_price"]').is(":checked")) {
+					$('#order_value').val(parseFloat(e.data) + parseInt($('#range_05').val()));
+				} else if($('#order_value').val() == "") {
+					$('#order_value').val(parseFloat(e.data) + parseInt($('#range_05').val()));
+				}
+				$('#now_price_value').val(e.data);
+		}, false);
+		
+		source.addEventListener('today_profit', function(e) { 
+				today_profit = e.data;
+				document.title = now_price + " " + today_profit;	
+		}, false);
+		
+		source.addEventListener('today_profit_html', function(e) { 
+				$('#today_profit').html(e.data); 
+		}, false);
+
+
+		source.addEventListener('display_price', function(e) { 
+				now_price = e.data;
+				document.title = now_price + " " + today_profit;
+		}, false);
+
+
+		source.addEventListener('chart', function(e) {
+				//data_chart = JSON.parse(JSON.stringify(e.data));
+				data_chart = JSON.parse(e.data);
+				if(data_chart !== undefined && data_color !== undefined) { 
+					chart_draw_sse(data_chart, data_color);	
+				}
+		
+		}, false);
+
+		source.addEventListener('chart_update', function(e) { 
+				
+				/*
+				data_chart.rows.pop();
+				console.log(e.data);
+				var s = JSON.parse(e.data);
+				*/
+				
+				var s = JSON.parse(e.data);
+				var update_id = s.rows.c[0].v;
+				
+				
+				var s = JSON.parse(e.data);
+				var check = 0;
+				
+				for (var key in data_chart.rows) {
+					  if (data_chart.rows[key].c[0].v === update_id) {
+							check = 1;
+							//console.log("찾았다!");
+					  }
+				}
+				if(check == 1) {
+					data_chart.rows.pop();
+				} else {
+					data_chart.rows.shift();
+				}
+				
+				data_chart.rows.push(s.rows);
+
+				if(data_chart !== undefined && data_color !== undefined) { 
+					chart_draw_sse(data_chart, data_color);	
+				}
+		
+		
+		}, false);
+		
+		
+		source.addEventListener('color', function(e) {
+				data_color = JSON.parse(e.data);
+		}, false);
+		
+			
+		source.addEventListener('open', function(e) {
+		   // Connection was opened.
+		}, false);
+
+		source.addEventListener('error', function(e) {
+		  if (e.readyState == EventSource.CLOSED) {
+			// Connection was closed.
+		  }
+		}, false);
+	  
+	  
+	} else { 
+
+	  alert("지원되지 않는 브라우저입니다.");
+	  
+	}
+
+});
+
+

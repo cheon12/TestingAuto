@@ -1,0 +1,77 @@
+* {
+    font-size:12px;
+}
+.top_logo {
+	float:left;
+	padding-left:10px;
+    height:30px;
+    margin:9px 5px;
+	width:calc(90% - 50px);
+}
+header {
+    top: -50px;
+	color:var(--header-phone-text);
+    /* padding:0px 6px 0px 10px; */
+    white-space: nowrap;
+}
+.header_menu_bg {
+	box-shadow: 0px 0px 2px 3px rgb(0 0 0 / 5%);
+}
+.top_screen {
+    display:none;
+}
+.top_screen i {
+    display:none;
+	font-size:20px;
+}
+.top_menu {
+    text-align:center;
+    height:50px;
+    line-height:50px;
+    padding:0px 10px;
+}
+.top_menu a {
+    font-size:14px;
+	color:var(--backgroud-white-text);
+}
+.top_menu {
+    width:auto;
+    text-align:center;
+    height:50px;
+    line-height:50px;
+    padding:0px 10px;
+}
+.profile_img_thumb {
+	width:40px;
+	height:40px;
+	border:4px solid rgba(255,255,255,0.1);
+	margin:4px;
+}
+.header_top_bg {
+	height:49px;
+}
+.header_menu_bg {
+	height:97px;
+	background-color:var(--header-menu-bgcolor);
+    width:100%;
+}
+.profile_menu {
+	padding:0px 10px;
+}
+.top_menu_scroll {
+	padding:0px 5px;
+	height:50px;
+	width:100%;
+	white-space:nowrap;
+	overflow-x:auto;
+	overflow-y:hidden;
+}
+#header_height {
+	height:155px;
+}
+.calendar_cols_f {
+	display:none;
+}
+.calendar_cols {
+	width:100%;float:left;
+}
